@@ -1,0 +1,9 @@
+2-f-i)  En este punto, el archivo tp2_1_2.c no "visible" porque fué creado en el branch Opcion_2, y al regresar a main 
+        sin haber hecho un merge, el archivo tp2_1_2.c quedó en el branch Opcion_2.
+    
+    iv) El comando gitk --all muestra la difurcación que hubo al momento de commitear algo en el branch Opcion_2 y en
+        el branch main. Se puede ver que toman "caminos diferentes".
+    
+    vi) Al realizar el merge de Opcion_2 con main, con el comando gitk --all podemos ver que esos "caminos separados"
+        que se habían creado al momento de commitear en estas 2 branchs diferentes se unen, llevando a la branch main
+        los commits que se habían realizado en la branch Opcion_2.

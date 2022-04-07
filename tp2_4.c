@@ -9,7 +9,10 @@ typedef struct PC {
 } PC;
 
 int getAnio();
+void printComputadora(PC computadora);
 void printComputadoras(PC * computadoras);
+void printComputadoraMasVieja(PC * computadora);
+void printComputadoraMasRapida(PC * computadora);
 
 int main() {
     PC computadoras[M];
@@ -24,6 +27,8 @@ int main() {
     }
     
     printComputadoras(computadoras);
+    printf("\nLa computadora con el menor año de fabricacion es:\n");
+    printComputadoraMasVieja(computadoras);
     
     return 0;
 }
@@ -32,12 +37,38 @@ void printComputadoras(PC * computadoras) {
     int i;
     for(i = 0; i < M; i++) {
         printf("-- PC %d --\n", i);
-        printf("Velocidad Ghz.: %d\n", computadoras[i].velocidadGhz);
-        printf("Año de fabricación: %d\n", computadoras[i].anioFabricacion);
-        printf("Cantidad de nucleos: %d\n", computadoras[i].nucleos);
-        printf("Tipo procesador: %s\n", computadoras[i].tipoProcesador);
-        printf("\n");
+        printComputadora(computadoras[i]);
     }
+}
+
+void printComputadoraMasVieja(PC * computadoras) {
+    PC computadoraAux = computadoras[0];
+    int i;
+    for(i = 0; i < M; i++) {
+        if(computadoras[i].anioFabricacion <= computadoraAux.anioFabricacion) {
+            computadoraAux = computadoras[i];
+        }
+    }
+    printComputadora(computadoraAux);
+}
+
+void printComputadoraMasRapida(PC * computadoras) {
+    PC computadoraAux = computadoras[0];
+    int i;
+    for(i = 0; i < M; i++) {
+        if(computadoras[i].anioFabricacion <= computadoraAux.anioFabricacion) {
+            computadoraAux = computadoras[i];
+        }
+    }
+    printComputadora(computadoraAux);
+}
+
+void printComputadora(PC computadora) {
+    printf("Velocidad Ghz.: %d\n", computadora.velocidadGhz);
+    printf("Año de fabricación: %d\n", computadora.anioFabricacion);
+    printf("Cantidad de nucleos: %d\n", computadora.nucleos);
+    printf("Tipo procesador: %s\n", computadora.tipoProcesador);
+    printf("\n");
 }
 
 int getAnio(int min, int max) {

@@ -29,6 +29,8 @@ int main() {
     printComputadoras(computadoras);
     printf("\nLa computadora con el menor año de fabricacion es:\n");
     printComputadoraMasVieja(computadoras);
+    printf("\nLa computadora mas rapida es:\n");
+    printComputadoraMasRapida(computadoras);
     
     return 0;
 }
@@ -56,7 +58,7 @@ void printComputadoraMasRapida(PC * computadoras) {
     PC computadoraAux = computadoras[0];
     int i;
     for(i = 0; i < M; i++) {
-        if(computadoras[i].anioFabricacion <= computadoraAux.anioFabricacion) {
+        if(computadoras[i].velocidadGhz >= computadoraAux.velocidadGhz) {
             computadoraAux = computadoras[i];
         }
     }
